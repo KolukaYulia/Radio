@@ -54,10 +54,35 @@ public class RadioTest {
     @Test
     public void shouldSetNextStation () {
         Radio radio = new Radio();
-        radio.setCurrentStation(9);
+        radio.setCurrentStation(7);
 
         radio.nextStation();
 
+        int expected = 8;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetNextStationMax () {
+        Radio radio = new Radio();
+        radio.setCurrentStation(8);
+
+        radio.nextStation();
+
+        int expected = 9;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetNextStationThenMax () {
+        Radio radio = new Radio();
+        radio.setCurrentStation(9);
+
+        radio.nextStation();
 
 
         int expected = 0;
@@ -80,6 +105,35 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    public void shouldSetNextStationThenAboveMax10 () {
+        Radio radio = new Radio();
+        radio.setCurrentStation(11);
+
+        radio.nextStation();
+
+
+        int expected = 1;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+
+
+    @Test
+    public void shouldSetNextStationThenMin () {
+        Radio radio = new Radio();
+        radio.setCurrentStation(0);
+
+        radio.nextStation();
+
+
+        int expected = 1;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
 
     @Test
     public void shouldSetNextStationThenBelowMin () {
@@ -95,14 +149,16 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
+
+
     @Test
     public void shouldSetPrevStation () {
         Radio radio = new Radio();
-        radio.setCurrentStation(8);
+        radio.setCurrentStation(1);
 
         radio.prevStation();
 
-        int expected = 7;
+        int expected = 0;
         int actual = radio.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
