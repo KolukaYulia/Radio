@@ -3,13 +3,32 @@ import org.junit.jupiter.api.Test;
 
 public class RadioTest {
 
+
+    //@Test
+    //public void test() {
+      //  Radio radio = new Radio(30);
+
+        //Assertions.assertEquals(0, radio.getMinStation());
+        //Assertions.assertEquals(29, radio.getMaxStation());
+
+    //}
+    //@Test
+    //public void test1() {
+      //  Radio radio = new Radio();
+
+        //Assertions.assertEquals(0, radio.getMinStation());
+        //Assertions.assertEquals(9, radio.getMaxStation());
+
+    //}
+
+
     @Test
     public void setStation () {
         Radio radio = new Radio();
 
-        radio.setCurrentStation(2);
+        radio.setCurrentStation(9);
 
-        int expected = 2;
+        int expected = 9;
         int actual = radio.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
