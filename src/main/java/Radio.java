@@ -1,23 +1,10 @@
 public class Radio {
-    //private int minStation = 0;
-    //private int quantityStations = 10;
-    //private int maxStation = minStation + quantityStations - 1;
-
     private int currentStation;
-    public int currentVolume;
-
-
-
-    //public int getMinStation () { return minStation; }
-
-    //public int getMaxStation () { return maxStation; }
-
+    private int currentVolume;
 
     public int getCurrentStation () {
         return currentStation;
     }
-
-
 
     public void setCurrentStation(int newCurrentStation) {
         if (newCurrentStation < 0) {
@@ -29,19 +16,21 @@ public class Radio {
         currentStation = newCurrentStation;
 
     }
-    //public int getQuantityStations () {
-        //return quantityStations;
-    //}
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
 
-    //public Radio() {
+    public void setCurrentVolume(int newCurrentVolume) {
+        if (newCurrentVolume < 0) {
+            return;
+        }
+        if (newCurrentVolume > 10) {
+            return;
+        }
+        currentVolume = newCurrentVolume;
 
-    //}
 
-    //public Radio(int quantity) {
-        //quantityStations = quantity;
-        //maxStation = minStation + quantity - 1;
-    //}
-
+    }
 
     public void nextStation() {
         currentStation++;
@@ -61,28 +50,19 @@ public class Radio {
     }
 
     public void increaseVolume() {
-        if (currentVolume < 10) {
-            currentVolume = currentVolume +1;
+        if (currentVolume == 10) {
+            return;
         }
-        if (currentVolume >= 10) {
-            currentVolume = 10;
-        }
-        if (currentVolume <= 0) {
-            currentVolume = 0;
-        }
+        currentVolume++;
 
     }
 
     public void reduceVolume() {
-        if (currentVolume < 10) {
-            currentVolume = currentVolume -1;
+        if (currentVolume == 0) {
+            return;
         }
-        if (currentVolume >= 10) {
-            currentVolume = 10;
-        }
-        if (currentVolume <= 0) {
-            currentVolume = 0;
-        }
+        currentVolume = currentVolume - 1;
+
 
     }
 
